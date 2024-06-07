@@ -55,9 +55,6 @@ const ProductItemDetail = ({ product }: ProductItemDetailProps) => {
 
   const cart = useCart();
 
-  const addItem = useStore((state) => state.addItem);
-  const fetchItems = useStore((state) => state.fetchItems);
-
   const [totalPrice, setTotalPrice] = useState(0);
 
   const onAddCart: MouseEventHandler<HTMLButtonElement> = async (event) => {
@@ -105,20 +102,6 @@ const ProductItemDetail = ({ product }: ProductItemDetailProps) => {
 
     try {
       setLoading(true);
-
-      // const item = {
-      //   quantity: quantity,
-      //   amount: Number((quantity * productTotalPrice).toFixed(2)),
-      //   products: product.id,
-      //   users_permissions_user: Number(userId),
-      //   userId: Number(userId),
-      // };
-
-      // Assuming AddToCart expects the nested data structure
-      // await AddToCart({ data: item }, jwt);
-
-      // addItem(item); // Add the item to the store
-      fetchItems(Number(userId), jwt);
     } catch (error) {
       console.error(error);
     } finally {

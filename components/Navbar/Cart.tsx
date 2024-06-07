@@ -94,12 +94,6 @@ const Cart = ({ jwt, userId }: CartProps) => {
     };
   }, []);
 
-  useEffect(() => {
-    if (userId && jwt) {
-      fetchItems(Number(userId), jwt);
-    }
-  }, [userId, jwt, fetchItems, localItems]);
-
   const onDeleteItem = (id: number) => {
     // deleteCart(id, jwt);
     deleteItem(id);
